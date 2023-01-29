@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+body {
+  font-family: "Montserrat", sans-serif;
+}
+.detailCardUl {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.detailCardUl > * {
+  margin-left: 0.3rem;
+}
+
+.Card {
+  margin: 0 auto;
+  width: 40rem;
+  margin-top: 1rem;
+  padding: 0.1rem;
+}

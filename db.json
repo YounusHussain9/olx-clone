@@ -1,0 +1,115 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "featured" : true,
+      "addTitle": "Mobile",
+      "description": "as",
+      "brand": "new",
+      "price": 12,
+      "photo": "https://images.olx.com.pk/thumbnails/321326423-240x180.webp",
+      "location": "karachi",
+      "name": "younus",
+      "phone": 123
+    },{
+      "id": 2,
+      "featured" : true,
+      "addTitle": "phone",
+      "description": "as",
+      "brand": "new",
+      "price": 12,
+      "photo": "https://images.olx.com.pk/thumbnails/321326423-240x180.webp",
+      "location": "karachi",
+      "name": "younus",
+      "phone": 123
+    },{
+      "id": 3,
+      "featured" : true,
+      "addTitle": "bed",
+      "description": "as",
+      "brand": "new",
+      "price": 12,
+      "photo": "https://images.olx.com.pk/thumbnails/321326423-240x180.webp",
+      "location": "karachi",
+      "name": "younus",
+      "phone": 123
+    },{
+      "id": 4,
+      "featured" : false,
+      "addTitle": "Table",
+      "description": "as",
+      "brand": "new",
+      "price": 12,
+      "photo": "https://images.olx.com.pk/thumbnails/321326423-240x180.webp",
+      "location": "karachi",
+      "name": "younus",
+      "phone": 123
+    },{
+      "id": 5,
+      "featured" : true,
+      "addTitle": "phoasne",
+      "description": "as",
+      "brand": "new",
+      "price": 12,
+      "photo": "https://images.olx.com.pk/thumbnails/321326423-240x180.webp",
+      "location": "karachi",
+      "name": "younus",
+      "phone": 123
+    },{
+      "id": 6,
+      "featured" : true,
+      "addTitle": "phasone",
+      "description": "as",
+      "brand": "new",
+      "price": 12,
+      "photo": "https://images.olx.com.pk/thumbnails/321326423-240x180.webp",
+      "location": "karachi",
+      "name": "younus",
+      "phone": 123
+    },{
+      "id": 7,
+      "featured" : true,
+      "addTitle": "phoadne",
+      "description": "as",
+      "brand": "new",
+      "price": 12,
+      "photo": "https://images.olx.com.pk/thumbnails/321326423-240x180.webp",
+      "location": "karachi",
+      "name": "younus",
+      "phone": 123
+    },{
+      "id": 8,
+      "featured" : true,
+      "addTitle": "pqwhone",
+      "description": "as",
+      "brand": "new",
+      "price": 12,
+      "photo": "https://images.olx.com.pk/thumbnails/321326423-240x180.webp",
+      "location": "karachi",
+      "name": "younus",
+      "phone": 123
+    },{
+      "id": 9,
+      "featured" : true,
+      "addTitle": "werphone",
+      "description": "as",
+      "brand": "new",
+      "price": 12,
+      "photo": "https://images.olx.com.pk/thumbnails/321326423-240x180.webp",
+      "location": "karachi",
+      "name": "younus",
+      "phone": 123
+    },{
+      "id": 10,
+      "featured" : true,
+      "addTitle": "adphone",
+      "description": "as",
+      "brand": "new",
+      "price": 12,
+      "photo": "https://images.olx.com.pk/thumbnails/321326423-240x180.webp",
+      "location": "karachi",
+      "name": "younus",
+      "phone": 123
+    }
+  ]
+}

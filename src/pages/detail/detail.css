@@ -1,0 +1,11 @@
+.related-ad-card {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1rem;
+}
+
+.related-ad-card>*{
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
