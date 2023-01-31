@@ -12,14 +12,14 @@ function DetailCard({ detail }) {
 
           <ul className="detailCardUl">
             <li>
-              <Card.Text>{detail.name}</Card.Text>
+              <Card.Text>{`👤 ${detail.name}`}</Card.Text>
             </li>
 
             <li>
-              <Card.Text>{detail.location}</Card.Text>
+              <Card.Text> {`🏠${detail.location}`}</Card.Text>
             </li>
           </ul>
-          <Card.Text>{detail.phone}</Card.Text>
+          <Card.Text>{`📞 ${detail.phone}`}</Card.Text>
         </Card.Body>
       </Card>
     </>

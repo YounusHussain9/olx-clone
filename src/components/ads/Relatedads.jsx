@@ -1,5 +1,6 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import ContentCard from "../cards/Card";
 
 function Relatedads({ ad }) {
   return (
@@ -10,7 +11,9 @@ function Relatedads({ ad }) {
         <Card.Text>{ad.description}</Card.Text>
       </Card.Body>
     </Card>
-  );
+  // <ContentCard product={ad}/>
+
+    );
 }
 
 export default Relatedads;
