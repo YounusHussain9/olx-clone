@@ -12,9 +12,46 @@ body {
   margin-left: 0.3rem;
 }
 
-.Card {
-  margin: 0 auto;
-  width: 40rem;
-  margin-top: 1rem;
-  padding: 0.1rem;
+.detail-img {
+  margin-left: 1rem;
+  margin-top: 2rem;
+  border: 2px solid;
+  width: 700px;
+  max-width: 710px;
+  height: 480px;
+  max-height: 490px;
 }
+
+.flex-card {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.card-group > * {
+  width: 30rem;
+  max-width: 31rem;
+  height: 10rem;
+  max-height: 11rem;
+  margin-top: 2rem;
+}
+
+.card-group > * {
+  padding: 0 1rem 0 1rem;
+}
+
+.detail-desc > * {
+  width: 50rem;
+  max-width: 51rem;
+  height: 12rem;
+  max-height: 20rem;
+  margin-top: 2rem;
+  margin-left: 7rem;
+  padding: 1rem;
+}
+

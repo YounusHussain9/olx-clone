@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { getProducts } from "../../../reduxstore/Productslice";
+import { useFormik } from "formik";
 import { FetchProducts } from "../../../reduxstore/Fetchslice";
 import { useDispatch } from "react-redux";
 import { Form } from "react-bootstrap";
+import Modal from "react-bootstrap/Modal";
+import React, { useState } from "react";
+import axios from "axios";
+import { addProductSchema } from "../../../schemas";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import "./addproductmodal.css";
-import axios from "axios";
 
 const INITIAL_VALUE = {
   title: "",
@@ -17,12 +18,28 @@ const INITIAL_VALUE = {
   location: "",
   username: "",
   phone: "",
+  photo: null,
 };
 
 function Addproductmodal() {
+  const {
+    values,
+    errors,
+    setFieldValue,
+    touched,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+  } = useFormik({
+    initialValues: INITIAL_VALUE,
+    validationSchema: addProductSchema,
+    onSubmit: (values) => {
+      onSubmitHandle();
+    },
+  });
+
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
-  const [addProduct, setAddProduct] = useState({ INITIAL_VALUE });
   const [Image, setImage] = useState(null);
   const [checked, setChecked] = useState(false);
   const handleClose = () => setShow(false);
@@ -30,42 +47,39 @@ function Addproductmodal() {
     setShow(true);
   };
 
+  //post data in json
   const POST_DATA = async () => {
     const request = await axios.post(`http://localhost:400/products`, {
       featured: checked,
-      addTitle: addProduct.title,
-      description: addProduct.desc,
-      brand: addProduct.brand,
-      price: addProduct.price,
+      addTitle: values.title,
+      description: values.desc,
+      brand: values.brand,
+      price: values.price,
       photo: Image,
-      location: addProduct.location,
-      name: addProduct.username,
-      phone: addProduct.phone,
+      location: values.location,
+      name: values.username,
+      phone: values.phone,
     });
-    // const response = await request;
-    // dispatch(getProducts(response));
     dispatch(FetchProducts());
   };
 
-  const onHandleChange = (e) => {
-    setAddProduct({ ...addProduct, [e.target.name]: e.target.value });
-  };
-
-  const onImgHandleChange = (e) => {
-    const file = e.target.files;
+  //handle image file
+  if (values.photo) {
     const reader = new FileReader();
-    reader.readAsDataURL(file[0]);
-    reader.onload = (e) => {
-      setImage(e.target.result);
+    reader.readAsDataURL(values.photo);
+    reader.onload = () => {
+      console.log(reader.result);
+      setImage(reader.result);
     };
-  };
+  }
 
-  const onSubmit = () => {
-    // dispatch(getProducts(Image));
+  //submit product form
+  const onSubmitHandle = () => {
     POST_DATA();
     setShow(false);
   };
 
+  //open and close modal
   const toggle = (value) => {
     return !value;
   };
@@ -94,9 +108,12 @@ function Addproductmodal() {
             <Form.Control
               type="text"
               name="title"
-              onChange={onHandleChange}
               placeholder="Product Title"
+              value={values.title}
+              onBlur={handleBlur}
+              onChange={handleChange}
             />
+            {errors.title && touched.title ? <h6>{errors.title}</h6> : null}
           </FloatingLabel>
 
           <FloatingLabel
@@ -107,9 +124,12 @@ function Addproductmodal() {
             <Form.Control
               type="text"
               name="desc"
-              onChange={onHandleChange}
               placeholder="Product Description"
+              value={values.desc}
+              onBlur={handleBlur}
+              onChange={handleChange}
             />
+            {errors.desc && touched.desc ? <h6>{errors.desc}</h6> : null}
           </FloatingLabel>
 
           <FloatingLabel
@@ -120,9 +140,12 @@ function Addproductmodal() {
             <Form.Control
               type="text"
               name="brand"
-              onChange={onHandleChange}
               placeholder="Brand"
+              value={values.brand}
+              onBlur={handleBlur}
+              onChange={handleChange}
             />
+            {errors.brand && touched.brand ? <h6>{errors.brand}</h6> : null}
           </FloatingLabel>
 
           <FloatingLabel
@@ -133,18 +156,24 @@ function Addproductmodal() {
             <Form.Control
               type="text"
               name="price"
-              onChange={onHandleChange}
               placeholder="Product Price"
+              value={values.price}
+              onBlur={handleBlur}
+              onChange={handleChange}
             />
+            {errors.price && touched.price ? <h6>{errors.price}</h6> : null}
           </FloatingLabel>
 
           <FloatingLabel controlId="floatingInput" className="mb-3">
             <Form.Control
               type="file"
-              name="image"
-              onChange={onImgHandleChange}
+              name="photo"
               placeholder="Product Image"
+              onChange={(e) => {
+                setFieldValue("photo", e.target.files[0]);
+              }}
             />
+            {errors.photo && touched.photo ? <h6>{errors.photo}</h6> : null}
           </FloatingLabel>
 
           <FloatingLabel
@@ -155,9 +184,14 @@ function Addproductmodal() {
             <Form.Control
               type="text"
               name="location"
-              onChange={onHandleChange}
               placeholder="Your Location"
+              value={values.location}
+              onBlur={handleBlur}
+              onChange={handleChange}
             />
+            {errors.location && touched.location ? (
+              <h6>{errors.location}</h6>
+            ) : null}
           </FloatingLabel>
 
           <FloatingLabel
@@ -168,9 +202,14 @@ function Addproductmodal() {
             <Form.Control
               type="text"
               name="username"
-              onChange={onHandleChange}
               placeholder="Your Name"
+              value={values.username}
+              onBlur={handleBlur}
+              onChange={handleChange}
             />
+            {errors.username && touched.username ? (
+              <h6>{errors.username}</h6>
+            ) : null}
           </FloatingLabel>
 
           <FloatingLabel
@@ -181,9 +220,12 @@ function Addproductmodal() {
             <Form.Control
               type="text"
               name="phone"
-              onChange={onHandleChange}
               placeholder="Phone"
+              value={values.phone}
+              onBlur={handleBlur}
+              onChange={handleChange}
             />
+            {errors.phone && touched.phone ? <h6>{errors.phone}</h6> : null}
           </FloatingLabel>
           <label htmlFor="Featured">
             Featured{" "}
@@ -200,7 +242,7 @@ function Addproductmodal() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={onSubmit}>
+          <Button variant="primary" onClick={handleSubmit}>
             Submit
           </Button>
         </Modal.Footer>

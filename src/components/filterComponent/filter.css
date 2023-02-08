@@ -1,15 +1,11 @@
-.homeProduct {
+.filterProduct {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   padding: 1rem;
 }
 
-.homeProduct > * {
+.filterProduct > * {
   margin-left: 1rem;
   margin-top: 1rem;
-}
-
-.anchor-div {
-  text-align: center;
 }

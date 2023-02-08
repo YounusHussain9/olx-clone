@@ -10,8 +10,7 @@ const Detailpage = () => {
   const [productDetail, setProductDetail] = useState([]);
   const [ads, setAds] = useState([]);
 
-
-
+  //get specific user detail
   useEffect(() => {
     const User_Detail = async () => {
       const request = await axios.get(`http://localhost:400/products?id=${id}`);
@@ -21,8 +20,7 @@ const Detailpage = () => {
     User_Detail();
   }, [id]);
 
-
-
+  // get add except detail one
   useEffect(() => {
     const Ads = async () => {
       const request = await axios.get(
@@ -34,8 +32,6 @@ const Detailpage = () => {
     Ads();
   }, [id]);
 
-
-
   return (
     <div>
       {productDetail &&
@@ -44,8 +40,13 @@ const Detailpage = () => {
         })}
 
       <div className="related-ad-card">
+        <h5 style={{ padding: "2rem 2rem 0 5rem" }}>
+          <strong>Related Ads</strong>
+        </h5>
+
         {ads &&
           ads.map((ad) => {
+            //reuse Product list component for making same cards
             return <Productlist product={ad} key={ad.id} />;
           })}
       </div>
