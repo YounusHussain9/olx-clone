@@ -16,6 +16,8 @@ border-left: 2px solid yellow;
 }
 
 .card-img{
-    height: 120px;
+    object-fit: cover;
+ object-position: center;
+    height: 150px;
     width: auto;
 }

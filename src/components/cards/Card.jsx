@@ -7,7 +7,7 @@ function ContentCard({ product }) {
   return (
     <NavLink to={`/detail/${product.id}`} style={{ textDecoration: "none" }}>
       <Card style={{ width: "18rem" }} id="card">
-        <Card.Img variant="top" src={product.photo} className="card-img" />
+        <Card.Img variant="top" src={product.photo} className="card-img"  />
 
         {product.featured && <FeaturedBadge />}
         <Card.Body className={product.featured ? "Cardborder" : ""}>
